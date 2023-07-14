@@ -10,9 +10,9 @@ class AttendeesController < ApplicationController
     end
 
     def show
-        @attendee = Attendee.find_by_email_address params[:email_address]
+        @attendee = Attendee.includes(:events).find_by_email_address params[:email_address]
 
-        render json: AttendeesBlueprint.render(@attendee), status: :ok
+        render json: AttendeesBlueprint.render(@attendee, view: :with_events), status: :ok
     end
 
     def update

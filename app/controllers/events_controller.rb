@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     end
 
     def index
-        @events = Event.where(private: false)
+        @events = Event.where(private: false).page params[:page]
 
         render json: EventsBlueprint.render(@events), status: :ok
     end
@@ -61,7 +61,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-        params.require(:event).permit(:start_time, :end_time, :description, :event_type, :private, :title)
+        params.require(:event).permit(:start_time, :end_time, :description, :event_type, :private, :title, :location)
     end
 
     def create_invitations(attendees)

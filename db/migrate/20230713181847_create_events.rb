@@ -7,6 +7,8 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.integer :event_type, default: 0, null: false
       t.boolean :private, default: false, null: false
       t.string :title, default: '', limit: 75
+      t.text :location, default: ''
+
       t.references :organizer
       t.timestamps
     end

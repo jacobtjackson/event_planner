@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2023_07_13_195107) do
     t.integer "event_type", default: 0, null: false
     t.boolean "private", default: false, null: false
     t.string "title", limit: 75, default: ""
+    t.text "location", default: ""
     t.bigint "organizer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

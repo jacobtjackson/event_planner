@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+    paginates_per 10
     belongs_to :organizer, required: true
     has_many :invitations
     has_many :attendees, through: :invitations

@@ -11,6 +11,7 @@ gem 'pg'
 gem 'puma', '~> 5.0'
 
 gem 'blueprinter', '~> 0.25.3'
+gem 'kaminari'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production

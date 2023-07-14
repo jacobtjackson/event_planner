@@ -16,6 +16,12 @@ class InvitationsController < ApplicationController
     end
 
     def create
+        event = Event.find params[:event_id]
+        if event.private?
+            render json: { error_msg: "This is a private event and can only be RSVP'd to by people the organizer expressly invites." }, status: :unprocessable_entity
+            return
+        end
+
         attendee = Attendee.find_or_create_by(email_address: params[:attendee_email])
         @invitation = Invitation.where(attendee_id: attendee.id, event_id: params[:event_id]).first_or_initialize
         @invitation.invitation_status = params[:invitation_status]
